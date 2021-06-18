@@ -68,7 +68,7 @@ async def get_weather_forecast(user_id, city, bot):
         tomorrow = datetime.today() + timedelta(days=1)
 
         # Отправляем ответное сообщение с прогонозом погоды
-        await bot.send_message(user_id, f"\n***{datetime.now().strftime('%d-%m-%Y %H:%M')}***\n"
+        await bot.send_message(user_id, f"\n***{datetime.now(tz_Moscow).strftime('%d-%m-%Y %H:%M')}***\n"
               f"Прогноз погоды в городе: {city} на {tomorrow.strftime('%d-%m-%Y')}\nТемпература: {cur_weather}C° {wd}\n"
               f"Влажность: {humidity}%\nДавление: {pressure} мм.рт.ст\nСкорость ветра: {wind} м/с\n"
               f"Хорошего дня!")
