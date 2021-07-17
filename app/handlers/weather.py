@@ -47,7 +47,7 @@ async def get_weather(message: types.Message):
     try:
         # Получаем данные о погоде на основе переданных координат
         r = requests.get(
-            f"https://api.weather.yandex.ru/v1/forecast?lat={position[1]}&lon={position[0]}&lang=ru_RU",
+            f"https://api.weather.yandex.ru/v2/informers?lat={position[1]}&lon={position[0]}&lang=ru_RU",
             headers={'X-Yandex-API-Key': yandex_weather_token}
         )
         # Ответ преобразуем из json

@@ -41,14 +41,14 @@ async def get_weather_forecast(user_id, city, bot):
     try:
         # Получаем данные о погоде на основе переданных координат
         r = requests.get(
-            f"https://api.weather.yandex.ru/v1/forecast?lat={position[1]}&lon={position[0]}&lang=ru_RU",
+            f"https://api.weather.yandex.ru/v2/informers?lat={position[1]}&lon={position[0]}&lang=ru_RU",
             headers={'X-Yandex-API-Key': yandex_weather_token}
         )
         # Ответ преобразуем из json
         data = r.json()
 
         # Вытаскиваем данные погоды на завтра
-        day_data = data["forecasts"][1]["parts"]["day"]
+        day_data = data["forecast"][1]["parts"]["day"]
 
         # Вытаскиваем описание погоды, чтобы подставить соответствующий смайлик
         weather_description = day_data["condition"]
